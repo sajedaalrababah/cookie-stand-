@@ -1,12 +1,22 @@
-import Hhead from '../components/Hhead';
-import Body from "../components/Body";
+import { useState } from "react";
+import CookieStandAdmin from "../components/cookieStandAdmin";
+import Login from "../components/login";
+import { useAuth } from "@/context/auth";
 
-export default function CookieStandAdmin() {
+
+
+
+export default function Home() {
+  const {user} = useAuth()
   return (
     <>
-      <Hhead data={"Home"} />
-      <Body/>
-    </>
+      
+      
+      {user ? <CookieStandAdmin /> : <Login />}
+      
+      
 
-  )
+
+    </>
+  );
 }
